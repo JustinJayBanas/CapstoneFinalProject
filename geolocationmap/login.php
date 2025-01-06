@@ -3,14 +3,13 @@ session_start();
 
 $message = "";
 
-// Database connection
-$servername = "localhost";  // Change this to your database server
-$db_username = "root";      // Change this to your database username
-$db_password = "";          // Change this to your database password
-$dbname = "travelwatch";    // Change this to your database name
+// db.php
+require '../config.php';
 
-// Connect to the database
-$conn = new mysqli($servername, $db_username, $db_password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Check connection
 if ($conn->connect_error) {
