@@ -4,7 +4,7 @@ session_start();
 $message = "";
 
 // db.php
-require '../config.php';
+require 'config.php';
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if ($conn->connect_error) {
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Compare passwords (plain text)
             if ($input_password === $db_password) {
                 $_SESSION['username'] = $input_username; // Save username to session
-                header("Location: geolocation.php");
+                header("Location: geolocationmap/geolocation.php");
                 exit;
             } else {
                 $message = "Invalid username or password.";
