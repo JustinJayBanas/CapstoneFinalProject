@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Compare passwords (plain text)
             if ($input_password === $db_password) {
                 $_SESSION['username'] = $input_username; // Save username to session
-                header("Location: geolocationmap/geolocation.php");
+                header("Location: ../geolocationmap/geolocation.ph");
                 exit;
             } else {
                 $message = "Invalid username or password.";
